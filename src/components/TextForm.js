@@ -1,28 +1,43 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 export default function TextForm(props) {
-    const handleUpClick = () =>{
+    const handleUpClick = () => {
         // console.log("Uppercase was clicked" + text);
         let newText = text.toUpperCase();
         setText(newText)
-        
+
+    }
+    const handleLoClick = () => {
+        // console.log("Uppercase was clicked" + text);
+        let newText = text.toLowerCase();
+        setText(newText)
+
     }
 
-    const handleOnchange = (event) =>{
+    const handleOnchange = (event) => {
         // console.log("On change");
         setText(event.target.value)
     }
-    
-    const [text, setText] = useState('Enter text here');
-    
+
+    const [text, setText] = useState('');
+
     return (
-        <div>
-            <div className="mb-3">
-                <h1>{props.heading}</h1>
-                {/* <label htmlfor="exampleFormControlTextarea1" className="form-label">Example textarea</label> */}
-                <textarea className="form-control" value={text} onChange={handleOnchange} id="myBox" rows="8"></textarea>
+        <>
+            <div className='container'>
+                <h2>{props.heading}</h2>
+                <div className="mb-3">
+                    {/* <label htmlfor="exampleFormControlTextarea1" className="form-label">Example textarea</label> */}
+                    <textarea className="form-control" value={text} onChange={handleOnchange} id="myBox" rows="8"></textarea>
+                </div>
+                <button className="btn btn-primary" onClick={handleUpClick} >Convert to Uppercase</button>
+                <button className="btn btn-success mx-3" onClick={handleLoClick} >Convert to Lowercase</button>
             </div>
-            <button className="btn btn-primary" onClick={handleUpClick} >Convert to Uppercase</button>
-        </div>
+            <div className='container my-3'>
+                <h2>Your text summary</h2>
+                <p>{text.split(" ").length} words {text.length} characters</p>
+                <p>{0.008 * text.split(" ").length} Minutes read</p>
+                <h2>{text}</h2>
+            </div>
+        </>
     )
 }
