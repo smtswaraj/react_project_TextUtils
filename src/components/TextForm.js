@@ -5,18 +5,21 @@ export default function TextForm(props) {
         // console.log("Uppercase was clicked" + text);
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert('Converted to uppercase!', 'success')
 
     }
     const handleLoClick = () => {
         // console.log("Uppercase was clicked" + text);
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert('Converted to lowercase!', 'success')
 
     }
     const handleClearClick = () => {
         // console.log("Uppercase was clicked" + text);
         let newText = ""
         setText(newText)
+        props.showAlert('clearing.......!', 'success')
 
     }
 
@@ -33,7 +36,7 @@ export default function TextForm(props) {
                 <h2>{props.heading}</h2>
                 <div className="mb-3">
                     {/* <label htmlfor="exampleFormControlTextarea1" className="form-label">Example textarea</label> */}
-                    <textarea className="form-control" value={text} onChange={handleOnchange} style={{backgroundColor: props.mode === 'light'?'white':'#042743',color:props.mode === 'light'?'black':'white',cursor:'pointer'}} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnchange} style={{backgroundColor: props.mode === 'light'?'white':'gray',color:props.mode === 'light'?'black':'white',cursor:'pointer'}} id="myBox" rows="8"></textarea>
                 </div>
                 <button className="btn btn-primary" onClick={handleUpClick} >Convert to Uppercase</button>
                 <button className="btn btn-success mx-3" onClick={handleLoClick} >Convert to Lowercase</button>
