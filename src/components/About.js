@@ -24,7 +24,7 @@ export default function About() {
             setMyStyle(
                 {
                     color: 'white',
-                    backgroundColor: 'black',
+                    backgroundColor: 'gray',
                     border:'1px solid white'
                 }
             )
