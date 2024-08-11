@@ -33,19 +33,19 @@ export default function TextForm(props) {
     return (
         <>
             <div className='container' style={{backgroundColor: props.mode === 'light'?'white':'#042743',color:props.mode === 'light'?'black':'white'}}>
-                <h2>{props.heading}</h2>
+                <h2 className='my-4'>{props.heading}</h2>
                 <div className="mb-3">
                     {/* <label htmlfor="exampleFormControlTextarea1" className="form-label">Example textarea</label> */}
                     <textarea className="form-control" value={text} onChange={handleOnchange} style={{backgroundColor: props.mode === 'light'?'white':'gray',color:props.mode === 'light'?'black':'white',cursor:'pointer'}} id="myBox" rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary" onClick={handleUpClick} >Convert to Uppercase</button>
-                <button className="btn btn-success mx-3" onClick={handleLoClick} >Convert to Lowercase</button>
-                <button className="btn btn-success " onClick={handleClearClick} >Clear Text</button>
+                <button disabled = {text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick} >Convert to Uppercase</button>
+                <button disabled = {text.length === 0} className="btn btn-success mx-1 my-1" onClick={handleLoClick} >Convert to Lowercase</button>
+                <button disabled = {text.length === 0} className="btn btn-success mx-1 my-1" onClick={handleClearClick} >Clear Text</button>
             </div>
             <div className='container my-3' style={{backgroundColor: props.mode === 'light'?'white':'#042743',color:props.mode === 'light'?'black':'white'}}>
                 <h2>Your text summary</h2>
-                <p>{text.split(" ").length} words {text.length} characters</p>
-                <p>{0.008 * text.split(" ").length} Minutes read</p>
+                <p>{text.split(" ").filter((element) => {return element.length !== 0 }).length} words {text.length} characters</p>
+                <p>{0.008 * text.split(" ").filter((element)=>{return element.length !== 0 }).length} Minutes read</p>
                 <h2>Preview</h2>
                 <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
             </div>

@@ -2,10 +2,10 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-// import About from './components/About';
+import About from './components/About';
 import Alert from './components/Alert';
 import { useState } from 'react';
-// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 // let name = "swaraj Nayak"
 
 function App() {
@@ -47,13 +47,13 @@ function App() {
   return (
     <>
       {/* <Navbar/> */}
-      <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert} />
+      {/* <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} /> */}
+      {/* <Alert alert={alert} /> */}
+      {/* <TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert} /> */}
       {/* <About/> */}
-      {/* <Router>
+      <Router>
         <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} />
-
+        <Alert alert={alert} />
         <Routes>
           <Route path="/nav" element={
             <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} />
@@ -65,7 +65,7 @@ function App() {
             <About />
           } />
         </Routes>
-      </Router> */}
+      </Router>
 
     </>
   );
